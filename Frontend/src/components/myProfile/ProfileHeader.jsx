@@ -4,10 +4,11 @@ import { useNavigate } from 'react-router-dom';
 
 function ProfileHeader({ selectedTab, setSelectedTab }) {
     // Define variables for dynamic values
-    const coverImageUrl = "https://images.unsplash.com/photo-1610018556010-6a11691bc905?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
-    const profileImageUrl = "https://plus.unsplash.com/premium_photo-1689977927774-401b12d137d6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D";
-    const userName = "Shazam Razaq";
-    const userBio = "A computer scientist";
+    const user = JSON.parse(localStorage.getItem('user'));
+    console.log(user)
+    const profileImageUrl = user.profilephoto;
+    const userName = user.name;
+    const userBio = user.bio || "A computer scientist";
 
     const navigate = useNavigate();
     const handleAddStartupClick = () => {
