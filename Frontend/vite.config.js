@@ -14,4 +14,9 @@ export default defineConfig({
       ext: '.gz',          // Set the extension for compressed files
     }),
   ],
+  resolve: {
+    alias: {
+      "./runtimeConfig": "./runtimeConfig.browser",
+    },
+  }
 })
