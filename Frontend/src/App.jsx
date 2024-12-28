@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import SplashScreen from "./components/splashScreen/SplashScreen";
+import SplashScreen from "./components/SplashScreen/SplashScreen";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import Home from "./pages/Home/Home";
