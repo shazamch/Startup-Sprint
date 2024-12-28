@@ -186,7 +186,7 @@
 ## Methodology to Run the Project
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/ayeshag7/startupsprint.git
+   git clone https://github.com/shazamch/Startup-Sprint.git
    ```
 2. **Setup Backend**:
    - Navigate to the backend directory.
