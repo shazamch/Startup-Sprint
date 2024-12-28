@@ -50,7 +50,7 @@ export default function SideBars() {
 
             {/* Logo and Collapse Button */}
             <div className="flex items-center justify-between p-5">
-                <img src={mainLogo} alt="main Logo" height={62} width={96} className={`${isCollapsed ? 'w-0 h-0 opacity-0' : 'overflow-hidden'} ${isDarkMode ? 'filter invert' : ''}`} />
+                <img src={mainLogo} alt="main Logo" height={62} width={96} className={`${isCollapsed ? 'w-0 h-0 opacity-0' : 'overflow-hidden'}  dark:"filter invert"`} />
                 {isCollapsed ? (
                     <img src={mainLogo} alt="Collapsed Logo" className="h-10 hover:scale-110 cursor-pointer" onClick={toggleSidebarState} />
                 ) : (

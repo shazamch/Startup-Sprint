@@ -4,7 +4,7 @@ import AudioCall from '../../../../assets/AudioCall.svg';
 import VideoCall from '../../../../assets/VideoCall.svg';
 import ProfileDetails from '../ProfileDetails/ProfileDetails';
 import notification from '../../../../assets/notification.mp3'
-import Footer from '../Footer/Footer';
+import TypingMessage from '../TypingMessage/TypingMessage';
 import { useSocket } from "../../../../context/SocketProvider";
 
 
@@ -31,10 +31,7 @@ function Conversation({ isDarkMode, conversationToRender, setconversationToRende
     };
 
     const handleProfileClick = (userData) => {
-        if (userData) {
-            setSelectedUser(userData);
-            setShowProfileDetails(true);
-        }
+        
     };
 
     // Scroll to the bottom whenever conversationToRender updates
@@ -88,8 +85,10 @@ function Conversation({ isDarkMode, conversationToRender, setconversationToRende
     }, []);
 
     return (
-        <div className={`chat-container rounded-r-lg h-[calc(100vh-115px)] w-[calc(100vw-355px)] ${isDarkMode ? 'bg-gray-800 text-white shadow-lg' : 'bg-white text-black'} p-4`}>
-            <div className='bg-blue-50 rounded-lg p-1 mb-2 flex items-center justify-between'>
+        <div className='flex flex-col gap-y-2'>
+        <div className={`chat-container rounded-lg max-h-[calc(100vh-115px)] w-[calc(100vw-575px)] mx-4 dark:bg-gray-800 dark:text-white text-black shadow-lg bg-white pt-4 pb-12 px-4 overflow-y-auto`}>
+
+            <div className='bg-blue-50 rounded-lg py-1 px-4 mx-4 mb-2 flex items-center justify-between'>
                 <h2 className="text-lg font-semibold flex items-center text-black cursor-pointer" onClick={() => handleProfileClick(otherUserData)}>
                     <img 
                         src={otherUserData.profilephoto} 
@@ -109,7 +108,8 @@ function Conversation({ isDarkMode, conversationToRender, setconversationToRende
             </div>
             {showSplash && <ComingSoonSplash />}
             {showProfileDetails && <ProfileDetails userData={selectedUser} onClose={() => setShowProfileDetails(false)} isDarkMode={isDarkMode} />}
-            <div className="chat-messages flex flex-col h-[484px] overflow-y-auto pr-2 scrollbar-hide">
+
+            <div className="chat-messages flex flex-col max-h-[450px]">
                 {conversationToRender.map((message, index) => {
                     const uniqueKey = message.id || `${message.sender}-${message.timestamp}-${index}`;
                     const messageUserData = message.sender === otherUserData.name
@@ -131,8 +131,8 @@ function Conversation({ isDarkMode, conversationToRender, setconversationToRende
                             key={uniqueKey} 
                             className={`message mb-4 p-2 rounded-md max-w-[40%] ${
                                 message.userId === LoggedUser._id 
-                                    ? 'bg-blue-600 text-white self-end rounded-br-none' 
-                                    : 'bg-gray-700 text-white self-start rounded-bl-none'
+                                    ? 'bg-custom-blue dark:bg-yellow-500 text-white self-end rounded-br-none' 
+                                    : 'bg-gray-800 dark:bg-gray-500 text-white self-start rounded-bl-none'
                             }`}
                         >
                             <div className="flex items-center cursor-pointer" onClick={() => handleProfileClick(messageUserData)}>
@@ -156,9 +156,13 @@ function Conversation({ isDarkMode, conversationToRender, setconversationToRende
                         </div>
                     );
                 })}
+
                 <div ref={messagesEndRef} />
+
             </div>
-            <Footer isDarkMode receiverData={otherUserData} LoggedUser={LoggedUser} /> {/* Footer added here */}
+        </div>
+
+        <TypingMessage isDarkMode receiverData={otherUserData} LoggedUser={LoggedUser} />
         </div>
     );
 }

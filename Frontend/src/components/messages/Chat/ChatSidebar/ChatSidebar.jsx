@@ -65,7 +65,7 @@ const ChatSidebar = ({ onSelectChat, isDarkMode, allusers, LoggedInUserDate }) =
     );
 
     return (
-        <div className={`p-2 flex flex-col h-[calc(100vh-115px)] border-r border-gray-150 rounded-l-lg ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+        <div className={`p-2 flex flex-col h-[calc(100vh-115px)] border-r border-gray-150 rounded-l-lg dark:bg-gray-800 dark:text-white bg-white text-black'`}>
             {/* Search Bar */}
             <input
                 type="text"
@@ -77,7 +77,7 @@ const ChatSidebar = ({ onSelectChat, isDarkMode, allusers, LoggedInUserDate }) =
 
             {/* Title: Recent Chats or Start New Chat */}
             <div className="flex justify-between items-center mt-4">
-                <h2 className={`text-lg font-semibold border-b ${isDarkMode ? 'text-white' : 'text-black'}`}>
+                <h2 className={`text-lg font-semibold border-b dark:text-white text-black`}>
                     {newchatopen ? 'Start New Chat' : 'Recent Chats'}
                 </h2>
                 {newchatopen && (
@@ -96,12 +96,12 @@ const ChatSidebar = ({ onSelectChat, isDarkMode, allusers, LoggedInUserDate }) =
                     filteredChats.map((chat, index) => (
                         <div
                             key={index}
-                            className={`flex items-center p-2 rounded-md cursor-pointer border-b ${isDarkMode ? 'hover:bg-blue-800' : 'hover:bg-blue-200'}`}
+                            className={`flex items-center p-2 rounded-md cursor-pointer border-b hover:bg-blue-200 dark:hover:bg-custom-yellow`}
                             onClick={() => onSelectChat(chat._id)}
                         >
                             <img src={chat.profilephoto} alt={chat.name} className="h-10 w-10 rounded-full mr-2" />
                             <div className="flex-1">
-                                <p className={`font-semibold ${isDarkMode ? 'text-white' : 'text-black'}`}>{chat.name}</p>
+                                <p className={`font-semibold dark:text-white text-black`}>{chat.name}</p>
                             </div>
                             {!newchatopen && (
                                 <span className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -113,7 +113,7 @@ const ChatSidebar = ({ onSelectChat, isDarkMode, allusers, LoggedInUserDate }) =
                 )}
                 {!newchatopen && (
                     <button
-                        className="absolute bottom-1 right-1 bg-blue-500 text-white p-2 rounded-full shadow-lg hover:bg-blue-600 focus:outline-none"
+                        className="absolute bottom-1 right-1 text-white dark:text-black bg-[#1836b2] hover:bg-white hover:text-[#1836b2] hover:border-[#1836b2] dark:bg-[#e7c94d] dark:hover:bg-white dark:hover:text-black dark:hover:border-[#e7c94d] px-4 py-2 rounded-md border-2 border-transparent"
                         onClick={handleNewChat}
                     >
                         +

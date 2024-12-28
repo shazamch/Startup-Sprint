@@ -33,13 +33,13 @@ function Header() {
         <div className="flex items-center gap-2">
           <div className="relative p-2 rounded-[0.9rem] bg-[rgba(45,156,219,0.15)]">
             <img src={IconNotification} alt="Notification" />
-            <span className="absolute -top-3 -right-1 bg-[#0E6D99] text-white text-xs px-1.5 rounded-full border border-white">
-              3
+            <span className="absolute -top-3 -right-1 bg-custom-blue dark:bg-custom-yellow text-white dark:text-black text-xs px-1.5 rounded-full border border-white">
+              4
             </span>
           </div>
           <div className="relative p-2 rounded-[0.9rem] bg-[rgba(45,156,219,0.15)]">
-            <img src={IconChat} alt="Chat" />
-            <span className="absolute -top-3 -right-1 bg-[#0E6D99] text-white text-xs px-1.5 rounded-full border border-white">
+            <img src={IconChat} alt="Chat" className="text-custom-yellow" />
+            <span className="absolute -top-3 -right-1 bg-custom-blue dark:bg-custom-yellow text-white dark:text-black text-xs px-1.5 rounded-full border border-white">
               3
             </span>
           </div>

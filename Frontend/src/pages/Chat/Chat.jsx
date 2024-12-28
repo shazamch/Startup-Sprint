@@ -69,22 +69,22 @@ function Chat({ children, onLogout, isDarkMode, toggleDarkMode }) {
   return (
     <div className="flex bg-white shadow-lg rounded-lg">
       <Sidebar onSelectChat={onSelectChat} isDarkMode={isDarkMode} allusers={allusers} LoggedInUserDate={LoggedInUserDate} />
-      <div className="flex-grow w-full h-[calc(100vh-115px)]">
+      <div className="max-sm:hidden flex-grow w-full h-[calc(100vh-115px)]">
         {conversationToRender !== "Splash" ? (
           <>
-            <div className="flex">
+            <div className="flex max-h-[calc(100vh-115px)]">
               <div className="flex">{children}</div>
               <Conversation isDarkMode={isDarkMode} conversationToRender={conversationToRender} setconversationToRender={setconversationToRender} LoggedUser={LoggedInUserDate} otherUserData={SelectFromStack} />
             </div>
           </>
         ) : (
-          <div className={`flex flex-col justify-center items-center h-[calc(100vh-115px)] rounded-r-lg ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
-            <img src={logo} alt="Main Logo" className={`h-24 w-24 mb-6 ${isDarkMode ? 'filter invert' : ''}`} />
-            <h1 className="text-5xl font-bold text-gray-800 mb-4 drop-shadow-lg">
-              Patient Communication Platform
+          <div className={`flex flex-col justify-center items-center h-[calc(100vh-115px)] rounded-r-lg dark:bg-gray-800 dark:text-white bg-white text-black`}>
+            <img src={logo} alt="Main Logo" className={`h-24 w-24 mb-6 dark:"filter invert"`} />
+            <h1 className="text-4xl font-bold dark:text-white text-gray-800 mb-4 drop-shadow-lg">
+              Startup Sprint
             </h1>
-            <p className={`text-2xl ${isDarkMode ? 'text-white' : 'text-gray-700'} drop-shadow-md tracking-wide`}>
-              Your Voice, Amplified
+            <p className={`text-xl dark:text-white text-gray-700 drop-shadow-md tracking-wide`}>
+              Sprint towards success
             </p>
             </div>
         )}

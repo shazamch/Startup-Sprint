@@ -27,7 +27,7 @@ function App() {
       {/* <Toast /> */}
       <Routes>
         {/* Public Routes */}
-        <Route path="/" element={<SplashScreen />} />
+        <Route path="/" element={<SplashScreen isLoggedIn={isAuthenticated}/>} />
         <Route path="/home" element={<Home isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode}/>}/>
         <Route path="/login"
           element={

@@ -7,19 +7,16 @@ export default defineConfig({
   plugins: [
     react(),
     compression({
-      verbose: true, 
-      disable: false,
-      threshold: 10240,
-      algorithm: 'gzip',
-      ext: '.gz',
+      verbose: true,       // Log compression details to the console
+      disable: false,      // Enable compression
+      threshold: 10240,    // Compress files larger than 10 KB
+      algorithm: 'gzip',   // Use gzip compression (you can also use 'brotli' here)
+      ext: '.gz',          // Set the extension for compressed files
     }),
   ],
   resolve: {
     alias: {
       "./runtimeConfig": "./runtimeConfig.browser",
     },
-  },
-  build: {
-    outDir: 'build',
-  },
+  }
 })

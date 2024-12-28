@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import messageMiddleware from '../../../../redux/middleware/messageMiddleware';
 import { useSocket } from "../../../../context/SocketProvider";
 
-function Footer({ isDarkMode, receiverData, LoggedUser }) {
+function TypingMessage({ isDarkMode, receiverData, LoggedUser }) {
   const [message, setMessage] = useState('');
   const dispatch = useDispatch(); // Use dispatch to send actions
   const socket = useSocket();
@@ -39,24 +39,24 @@ function Footer({ isDarkMode, receiverData, LoggedUser }) {
   }, []);
 
   return (
-    <footer className={`flex justify-between items-center p-4 rounded-xl ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
+    <div className={`flex justify-between items-center p-4 rounded-xl dark:bg-gray-800 dark:text-white bg-white text-black mx-4 border border-gray-200`}>
       <form onSubmit={handleSubmit} className="flex w-full">
         <input
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className={`flex-grow p-2 rounded-l-lg focus:outline-none ${isDarkMode ? 'bg-gray-700 text-white' : 'bg-gray-200 text-black'}`}
+          className={`flex-grow p-2 rounded-l-lg focus:outline-none dark:bg-gray-700 dark:text-white bg-gray-200 text-black`}
           placeholder="Type your message..."
         />
         <button
           type="submit"
-          className={`px-4 py-2 rounded-r-lg ml-1 bg-gradient-to-r from-yellow-400 via-red-500 to-pink-600 text-white`}
+          className={`px-4 py-2 rounded-r-lg ml-1 bg-gradient-to-r from-blue-400 via-blue-500 to-custom-blue dark:from-yellow-400 dark:via-yellow-500 dark:to-custom-yellow text-white`}
         >
           Send
         </button>
       </form>
-    </footer>
+    </div>
   );
 }
 
-export default Footer;
+export default TypingMessage;
