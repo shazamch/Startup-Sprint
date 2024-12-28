@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Sidebar from '../../components/messages/Chat/ChatSidebar/ChatSidebar';
 import Conversation from "../../components/messages/Chat/Conversation/Conversation";
-import logo from '../../assets/MainLogo.png';
+import logo from '../../assets/mainLogo.png';
 import { useDispatch, useSelector } from 'react-redux';
 import chatMiddleware from '../../redux/middleware/chatMiddleware';
 
