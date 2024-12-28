@@ -1,7 +1,8 @@
 const cors = require('cors');
 
 const allowedOrigins = [
-  'http://localhost:5173'
+  'http://localhost:5173',
+  'http://52.71.51.45/'
 ];
 
 const corsOptions = {
