@@ -61,7 +61,17 @@ function PostCard({ userName, userPhoto, postPhoto, postText, initialLikeCount, 
           </div>
           <span className="text-sm text-gray-500 dark:text-white">{postdate}</span>
         </div>
-
+        <div className="text-gray-700 dark:text-white">
+            {showMore ? postText : postText.slice(0, 100) + (postText.length > 100 ? '...' : '')}
+            {postText.length > 100 && (
+              <button
+                onClick={() => setShowMore(!showMore)}
+                className="ml-2 text-blue-500"
+              >
+                {showMore ? 'Show Less' : 'Show More'}
+              </button>
+            )}
+          </div>
         <div className="flex-grow mt-4 relative">
           <div className="relative w-full h-[300px] overflow-hidden rounded-md group">
             <img
@@ -101,18 +111,6 @@ function PostCard({ userName, userPhoto, postPhoto, postText, initialLikeCount, 
               <FaShare />
               <span className="text-gray-700 dark:text-white">Share</span>
             </button>
-          </div>
-
-          <div className="text-gray-700 dark:text-white">
-            {showMore ? postText : postText.slice(0, 100) + (postText.length > 100 ? '...' : '')}
-            {postText.length > 100 && (
-              <button
-                onClick={() => setShowMore(!showMore)}
-                className="ml-2 text-blue-500"
-              >
-                {showMore ? 'Show Less' : 'Show More'}
-              </button>
-            )}
           </div>
         </div>
       </div>
