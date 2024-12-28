@@ -62,8 +62,9 @@
 - **Socket.IO**
 
 ## Deployment
-- **Frontend**: Vercel
-- **Backend**: Render
+- **Frontend**: AWS
+- **Backend**: AWS
+- **Link**: http://52.71.51.45/
 
 ## Tools
 - **Postman** for API testing
