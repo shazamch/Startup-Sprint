@@ -49,7 +49,7 @@ function Partners() {
   ];
 
   return (
-    <div className="bg-white dark:bg-gray-900 mt-0 mb-48">
+    <div className="bg-white dark:bg-gray-900 mt-0 mb-48 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4">
         {/* Heading */}
         <Text />

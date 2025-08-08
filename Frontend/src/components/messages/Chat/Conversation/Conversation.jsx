@@ -60,7 +60,7 @@ function Conversation({ isDarkMode, conversationToRender, setconversationToRende
     useEffect(() => {
         // Listen for incoming chat messages
         socket.on('chat message', (messageData) => {
-            if (messageData.ReceiverId.toString() === LoggedUser._id.toString()) {
+            if (messageData.ReceiverId.toString() === LoggedUser._id.toString() && messageData.message.sendierid.toString() === otherUserData._id.toString()) {
                 const sound = new Audio(notification);
                 sound.play();
             }            
@@ -74,8 +74,10 @@ function Conversation({ isDarkMode, conversationToRender, setconversationToRende
                 // Add any other necessary fields from messageData
             };
 
-            // Update messages state with the new message
+            if (messageData.ReceiverId.toString() === LoggedUser._id.toString() && messageData.message.sendierid.toString() === otherUserData._id.toString()) {
+                // Update messages state with the new message
             setconversationToRender((prevMessages) => [...prevMessages, formattdmessageData]);
+            }
         });
 
         // Cleanup on component unmount
@@ -83,6 +85,7 @@ function Conversation({ isDarkMode, conversationToRender, setconversationToRende
             socket.off('chat message');
         };
     }, []);
+    console.log(conversationToRender)
 
     return (
         <div className='flex flex-col gap-y-2'>
